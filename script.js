@@ -25,11 +25,40 @@ var spelerY = 600; // y-positie van speler
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
 var beweegAlles = function () {
-  // vijand
 
-  // kogel
+      if (keyIsDown(65)) {
+spelerX = spelerX - 3;
+    }
 
-  // speler
+  if (keyIsDown(68)) {
+spelerX = spelerX + 3;
+    }
+
+    if (keyIsDown(87)) {
+    spelerY = spelerY - 5;
+    }
+  
+  if (keyIsDown(83)) {
+    spelerY = spelerY + 5;
+  }
+
+ if (spelerX < 50) {
+      spelerX = 50;
+      }
+    
+    if (spelerY < 20) {
+      spelerY = 20;
+
+    } 
+    if (spelerX > 705) {
+      spelerX = 705;
+      }
+    
+    if (spelerY > 1060) {
+      spelerY = 1060;
+
+
+    }
 
 };
 
