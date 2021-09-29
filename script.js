@@ -42,20 +42,20 @@ spelerX = spelerX + 3;
     spelerY = spelerY + 5;
   }
 
- if (spelerX < 50) {
-      spelerX = 50;
+ if (spelerX < 20) {
+      spelerX = 20;
       }
     
-    if (spelerY < 20) {
-      spelerY = 20;
+    if (spelerY < 30) {
+      spelerY = 30;
 
     } 
-    if (spelerX > 705) {
-      spelerX = 705;
+    if (spelerX > 1280) {
+      spelerX = 1280;
       }
     
-    if (spelerY > 1060) {
-      spelerY = 1060;
+    if (spelerY > 700) {
+      spelerY = 700;
 
 
     }
