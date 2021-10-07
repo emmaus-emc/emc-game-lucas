@@ -26,36 +26,36 @@ var spelerY = 400; // y-positie van speler
  */
 var beweegAlles = function () {
 
-      if (keyIsDown(65)) {
+      if (keyIsDown(37)) {
 spelerX = spelerX - 3;
     }
 
-  if (keyIsDown(68)) {
+  if (keyIsDown(39)) {
 spelerX = spelerX + 3;
     }
 
-    if (keyIsDown(87)) {
+    if (keyIsDown(38)) {
     spelerY = spelerY - 5;
     }
   
-  if (keyIsDown(83)) {
+  if (keyIsDown(40)) {
     spelerY = spelerY + 5;
   }
 
- if (spelerX < 20) {
-      spelerX = 20;
+ if (spelerX < 30) {
+      spelerX = 30;
       }
     
     if (spelerY < 30) {
       spelerY = 30;
 
     } 
-    if (spelerX > 1280) {
-      spelerX = 1280;
+    if (spelerX > 1250) {
+      spelerX = 1250;
       }
     
-    if (spelerY > 700) {
-      spelerY = 700;
+    if (spelerY > 690) {
+      spelerY = 690;
 
 
     }
