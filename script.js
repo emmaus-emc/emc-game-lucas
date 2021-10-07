@@ -79,7 +79,10 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   // achtergrond
+createCanvas(1280, 720);
 
+  // Kleur de achtergrond blauw, zodat je het kunt zien
+  background('blue');
   // vijand
 
   // kogel
@@ -111,13 +114,7 @@ var checkGameOver = function () {
  * de code in deze functie wordt één keer uitgevoerd door
  * de p5 library, zodra het spel geladen is in de browser
  */
-function setup() {
-  // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  createCanvas(1280, 720);
 
-  // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
-}
 
 /**
  * draw
