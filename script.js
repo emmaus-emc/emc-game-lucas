@@ -88,7 +88,12 @@ var verwerkBotsing = function () {
   if (vijandY > 720) {
     vijandY = 0;
   }
-
+if (vijandX - spelerX < 50 &&
+    vijandX - spelerX > -50) {
+    (vijandY - spelerY < 50 &&
+      vijandY - spelerY > -50)
+    console.log("geraakt")
+    }
 };
 
 /**
@@ -113,15 +118,15 @@ fill("red")
 
   // punten en health
 textSize(64);
-  text(hp, 30, 60);
+  text(hp, 20, 60);
   points = points + 1 / 50;
-  text('points: \n' + floor(points), 900, 80)
+  text('points: \n' + floor(points), 1000, 50)
 
   if (vijandX - spelerX < 50 &&
     vijandX - spelerX > -50 &&
     vijandY - spelerY < 50 &&
     vijandY - spelerY > -50) {
-
+    
     hp = hp - 1;
     }
 };
@@ -167,6 +172,8 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
+    text("Game over", 480,700);
+
 
   }
 }
