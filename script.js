@@ -16,6 +16,10 @@ var spelStatus = SPELEN;
 
 var spelerX = 625; // x-positie van speler
 var spelerY = 400; // y-positie van speler
+var vijandX = 625;
+var vijandY = 50;
+var hp = 100;
+var points = 0
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -25,7 +29,7 @@ var spelerY = 400; // y-positie van speler
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
 var beweegAlles = function () {
-
+//speler
       if (keyIsDown(37)) {
 spelerX = spelerX - 3;
     }
@@ -59,7 +63,8 @@ spelerX = spelerX + 3;
 
 
     }
-
+    //vijand
+ vijandY = vijandY + 15;
 };
 
 /**
@@ -68,9 +73,21 @@ spelerX = spelerX + 3;
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function () {
-  // botsing speler tegen vijand
-
-  // botsing kogel tegen vijand
+  if (spelerX > 1280) {
+    spelerX = 1280;
+  }
+  if (spelerY > 720) {
+    spelerY = 720;
+  }
+  if (spelerX < 0) {
+    spelerX = 0;
+  }
+  if (spelerY < 0) {
+    spelerY = 0;
+  }
+  if (vijandY > 720) {
+    vijandY = 0;
+  }
 
 };
 
@@ -84,7 +101,8 @@ createCanvas(1280, 720);
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
   // vijand
-
+fill("red")
+  ellipse(vijandX - 25, vijandY - 25, 50, 50);
   // kogel
 
   // speler
@@ -94,7 +112,18 @@ createCanvas(1280, 720);
   ellipse(spelerX, spelerY, 10, 10);
 
   // punten en health
+textSize(64);
+  text(hp, 30, 60);
+  points = points + 1 / 50;
+  text('points: \n' + floor(points), 900, 80)
 
+  if (vijandX - spelerX < 50 &&
+    vijandX - spelerX > -50 &&
+    vijandY - spelerY < 50 &&
+    vijandY - spelerY > -50) {
+
+    hp = hp - 1;
+    }
 };
 
 /**
@@ -102,7 +131,13 @@ createCanvas(1280, 720);
  * anders return false
  */
 var checkGameOver = function () {
-  return false;
+  if (hp <= 0) {
+    return true
+  }
+  else {
+    return false;
+  }
+
 };
 
 /* ********************************************* */
