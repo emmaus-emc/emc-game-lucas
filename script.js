@@ -91,7 +91,7 @@ var verwerkBotsing = function () {
 if (vijandX - spelerX < 50 &&
     vijandX - spelerX > -50) {
     (vijandY - spelerY < 50 &&
-      vijandY - spelerY > -50)
+    vijandY - spelerY > -50)
     console.log("geraakt")
     }
 };
@@ -104,10 +104,10 @@ var tekenAlles = function () {
 createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('Black');
   // vijand
 fill("red")
-  ellipse(vijandX - 25, vijandY - 25, 50, 50);
+  ellipse(vijandX , vijandY - 25, 50, 50);
   // kogel
 
   // speler
@@ -118,6 +118,7 @@ fill("red")
 
   // punten en health
 textSize(64);
+fill("white");
   text(hp, 20, 60);
   points = points + 1 / 50;
   text('points: \n' + floor(points), 1000, 50)
@@ -166,14 +167,19 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    if (checkGameOver()) {
+    if (checkGameOver(hp < 1)) {
+
       spelStatus = GAMEOVER;
     }
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-    text("Game over", 480,700);
-
+  textSize(150)
+    fill('white')
+    text('Game over',250,360)
+    textsize(90)
+    fill('white')
+    text('score'+ floor(points), 170, 340)
 
   }
 }
