@@ -18,8 +18,12 @@ var spelerX = 625; // x-positie van speler
 var spelerY = 400; // y-positie van speler
 var vijandX = 625;
 var vijandY = 50;
+var kogelX = 300;
+var kogelY = 0;
 var hp = 100;
-var points = 0
+var points = 0;
+var vijandXlijst = [150, 300, 450, 600, 750, 900, 1050, 1200];
+var vijandYlijst = [0];
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -88,12 +92,27 @@ var verwerkBotsing = function () {
   if (vijandY > 720) {
     vijandY = 0;
   }
-if (vijandX - spelerX < 50 &&
-    vijandX - spelerX > -50) {
-    (vijandY - spelerY < 50 &&
-    vijandY - spelerY > -50)
-    console.log("geraakt")
+
+for (var i = 0; i < 8; i = i + 1) {
+    if (vijandXlijst[i] - spelerX < 50 &&
+      vijandXlijst[i] - spelerX > -50 &&
+      vijandY - spelerY < 50 &&
+      vijandY - spelerY > -50) {
+      console.log("geraakt");
+      hp = hp - 1;
     }
+  }
+
+
+
+
+  // botsing kogel tegen vijand
+  for (var i = 0; i < 8; i = i + 1) {
+    if (kogelX - vijandXlijst[i] < 50 && kogelX - vijandXlijst[i] > -50 && kogelY - vijandY < 50 && kogelY - vijandY > -50) {
+      console.log("geraakt");
+
+    }
+  }
 };
 
 /**
@@ -103,11 +122,17 @@ var tekenAlles = function () {
   // achtergrond
 createCanvas(1280, 720);
 
+  fill(42, 212, 198);
+  rect(0, 0, 1280, 720);
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('Black');
   // vijand
 fill("red")
-  ellipse(vijandX , vijandY - 25, 50, 50);
+for
+  (var i = 0; i < 8; i = i + 1) {
+    ellipse(vijandXlijst[i], vijandY - 25, 50, 50);
+  }
+
   // kogel
 
   // speler
@@ -183,3 +208,4 @@ function draw() {
 
   }
 }
+ 
